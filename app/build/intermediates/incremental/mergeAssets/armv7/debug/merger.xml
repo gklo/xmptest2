@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/home/rickdom/AndroidStudioProjects/hello-jni1/app/src/main/assets"/></dataSet><dataSet config="armv7"><source path="/home/rickdom/AndroidStudioProjects/hello-jni1/app/src/armv7/assets"/></dataSet><dataSet config="debug"><source path="/home/rickdom/AndroidStudioProjects/hello-jni1/app/src/debug/assets"/></dataSet><dataSet config="armv7Debug"><source path="/home/rickdom/AndroidStudioProjects/hello-jni1/app/src/armv7Debug/assets"/></dataSet></merger>

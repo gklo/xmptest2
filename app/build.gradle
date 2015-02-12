@@ -1,0 +1,48 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "21.1.2"
+
+    defaultConfig {
+        applicationId "com.example.hellojni"
+        minSdkVersion 3
+        targetSdkVersion 3
+
+        ndk {
+            moduleName "hello-jni"
+        }
+
+        testApplicationId "com.example.hellojni.tests"
+        testInstrumentationRunner "android.test.InstrumentationTestRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+
+        productFlavors {
+            armv7 {
+                ndk {
+                    abiFilter "armeabi-v7a"
+                    cFlags "-std=c++11 -fexceptions -DANDROID \
+                            -O3 -DNDEBUG -fstrict-aliasing -fexceptions -frtti \
+                            -DUNIX_ENV -DHAVE_MEMMOVE -DkBigEndianHost=0 -DEnableDynamicMediaHandlers=0 \
+                            -DEnableMiscHandlers=0 -DEnablePluginManager=0 -Wno-address \
+                            -I${project.buildDir}/../src/main/jni -I${project.buildDir}/../src/main/jni/public/include\
+                    ${project.buildDir}/../src/main/jniLibs/armeabi-v7a/staticXMPCore.ar ${project.buildDir}/../src/main/jniLibs/armeabi-v7a/staticXMPFiles.ar"
+                    ldLibs "z"
+                    stl "gnustl_static"
+                }
+            }
+            arm {
+                ndk {
+                    abiFilter "armeabi"
+                }
+            }
+            fat
+        }
+}
